@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- 상태바까지 view를 보여줄 수 있다 (for DrawerLayout)-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <!-- 상태바 색상(for DrawerLayout)-->
+
+
+        <item name="android:statusBarColor">#33D59F9F</item>
+        <item name="editTextColor">#FFFFFF</item>
+    </style>
+
+    <!-- This style is for the splash screen -->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>

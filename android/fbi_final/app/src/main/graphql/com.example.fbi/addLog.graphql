@@ -1,0 +1,5 @@
+mutation AddLog($book_num: Int!, $user_ID: String!, $book_category: Int!){
+    addLog(book_num : $book_num, user_ID:$user_ID, book_category:$book_category){
+        book_num
+    }
+}

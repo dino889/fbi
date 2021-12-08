@@ -1,0 +1,5 @@
+mutation updateMindbook($user_ID: String!, $book_num:Int!){
+    updateMindbook(user_ID:$user_ID, book_num:$book_num){
+        book_name
+    }
+}

@@ -1,0 +1,9 @@
+query getUserBook{
+    getUserBook{
+        user_book_AI
+        user_ID
+        book_num
+        comment
+        rating_scale
+    }
+}

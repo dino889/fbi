@@ -1,0 +1,8 @@
+mutation JoinUser($user_ID:String!, $user_password: String!, $user_name:String!, $user_age: Int!,
+    $user_gender:String!, $user_category : Int!, $user_phone : String!){
+    joinUser(user_ID : $user_ID, user_password : $user_password, user_name : $user_name,user_age : $user_age,
+    user_gender : $user_gender, user_category : $user_category, user_phone : $user_phone)
+    {
+        user_ID
+    }
+}

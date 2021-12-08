@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mypage.MyPageFragment">
+
+    <!--=========================================================================================-->
+    <!--=========================================================================================-->
+    <!--마이페이지 내 정보 아이콘-->
+    <ImageView
+        android:id="@+id/mp_userface"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_mypage"
+        tools:ignore="MissingConstraints" />
+
+    <!--마이페이지 - 유저 이름-->
+    <TextView
+        android:id="@+id/mp_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="69dp"
+        android:text="서상윤"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/mp_userface"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--마이페이지 - '님'-->
+    <TextView
+        android:id="@+id/mp_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="198dp"
+        android:text="님"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mp_username"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--마이페이지 - 유저 이메일-->
+    <TextView
+        android:id="@+id/mp_useremail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:text="ssy6199@gmail.com"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@+id/mp_userface"
+        app:layout_constraintTop_toBottomOf="@+id/mp_username" />
+
+    <!--=========================================================================================-->
+    <!--=========================================================================================-->
+    <!--계정 설정-->
+    <TextView
+        android:id="@+id/mp_acco"
+        android:layout_width="321dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/mypage_txb_shape"
+        android:gravity="center_vertical"
+        android:text="  계정 설정"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/acco_chPW"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <!--계정설정 - 비밀번호 변경-->
+    <TextView
+        android:id="@+id/acco_chPW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="비밀번호변경"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/acco_set"
+        app:layout_constraintStart_toStartOf="@+id/mp_acco"
+        app:layout_constraintTop_toBottomOf="@+id/mp_acco" />
+
+    <!--계정설정 - 맞춤 설정-->
+    <TextView
+        android:id="@+id/acco_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:text="맞춤 설정"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/acco_logout"
+        app:layout_constraintStart_toStartOf="@+id/acco_chPW"
+        app:layout_constraintTop_toBottomOf="@+id/acco_chPW" />
+
+    <!--계정설정 - 로그아웃-->
+    <TextView
+        android:id="@+id/acco_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="로그아웃"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/mp_guide"
+        app:layout_constraintStart_toStartOf="@+id/acco_set"
+        app:layout_constraintTop_toBottomOf="@+id/acco_set" />
+
+    <!--=========================================================================================-->
+    <!--=========================================================================================-->
+    <!--안내-->
+    <TextView
+        android:id="@+id/mp_guide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/mypage_txb_shape"
+        android:gravity="center_vertical"
+        android:text="  안내"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guide_help"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/acco_logout" />
+
+    <!--안내 - 도움말-->
+    <TextView
+        android:id="@+id/guide_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="도움말"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/guide_faq"
+        app:layout_constraintStart_toStartOf="@+id/mp_guide"
+        app:layout_constraintTop_toBottomOf="@+id/mp_guide" />
+
+    <!--안내 - 자주묻는질문 FAQ-->
+    <TextView
+        android:id="@+id/guide_faq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:text="자주묻는질문"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/guide_ques"
+        app:layout_constraintEnd_toEndOf="@+id/guide_help"
+        app:layout_constraintStart_toEndOf="@+id/guide_help"
+        app:layout_constraintTop_toBottomOf="@+id/guide_help" />
+
+    <!--안내 - 문의하기-->
+    <TextView
+        android:id="@+id/guide_ques"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="문의하기"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/mp_info"
+        app:layout_constraintStart_toStartOf="@+id/guide_faq"
+        app:layout_constraintTop_toBottomOf="@+id/guide_faq" />
+
+    <!--=========================================================================================-->
+    <!--=========================================================================================-->
+    <!--정보-->
+    <TextView
+        android:id="@+id/mp_info"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/mypage_txb_shape"
+        android:gravity="center_vertical"
+        android:text="  정보"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/info_appver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guide_ques" />
+
+    <!--정보 - 앱 버전-->
+    <TextView
+        android:id="@+id/info_appver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="6dp"
+        android:text="앱버전 ver1.0"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/info_tou"
+        app:layout_constraintStart_toStartOf="@+id/mp_info"
+        app:layout_constraintTop_toBottomOf="@+id/mp_info" />
+
+    <!--정보 - 앱 이용약관-->
+    <TextView
+        android:id="@+id/info_tou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:text="FBI 이용약관"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/info_privacy"
+        app:layout_constraintStart_toStartOf="@+id/info_appver"
+        app:layout_constraintTop_toBottomOf="@+id/info_appver" />
+
+    <!--정보 - 개인정보 활용원칙-->
+    <TextView
+        android:id="@+id/info_privacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="개인정보 활용원칙"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/mp_sece"
+        app:layout_constraintStart_toStartOf="@+id/info_tou"
+        app:layout_constraintTop_toBottomOf="@+id/info_tou" />
+
+    <!--=========================================================================================-->
+    <!--=========================================================================================-->
+    <!--탈퇴-->
+    <TextView
+        android:id="@+id/mp_sece"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/mypage_txb_shape"
+        android:gravity="center_vertical"
+        android:text="  탈퇴"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sece_confirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_privacy" />
+
+    <!--탈퇴 - 탈퇴확인-->
+    <TextView
+        android:id="@+id/sece_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="탈퇴하기"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_mypage"
+        app:layout_constraintStart_toStartOf="@+id/mp_sece"
+        app:layout_constraintTop_toBottomOf="@+id/mp_sece" />
+
+    <!--=========================================================================================-->
+    <!--=========================================================================================-->
+    <!--MypageFragment.kt ID-->
+    <TextView
+        android:id="@+id/text_mypage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sece_confirm" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+query LoginUser($id:String!, $pw: String!){
+    loginUser(id:$id, pw:$pw){
+        user_ID
+        user_name
+        user_phone
+        user_age
+        user_gender
+        user_mindbook
+        user_category
+    }
+}

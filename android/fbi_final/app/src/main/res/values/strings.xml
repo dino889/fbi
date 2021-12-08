@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FBI</string>
+    <string name="title_home">Home</string>
+    <string name="title_GPS">GPS</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_bookshelf">Bookshelf</string>
+    <string name="title_mypage">MyPage</string>
+
+</resources>

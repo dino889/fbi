@@ -1,0 +1,12 @@
+query getAllUser{
+    getAllUser{
+        user_ID
+        user_password
+        user_name
+        user_phone
+        user_age
+        user_gender
+        user_mindbook
+        user_category
+    }
+}
