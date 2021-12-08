@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model BOOK {
+  book_author                 String?
+  book_category               Int
+  book_name                   String
+  book_num                    Int            @default(autoincrement()) @id
+  book_picture                String?
+  book_publisher              String?
+  book_side_pic               String?
+  book_year                   String?
+  CATEGORY                    CATEGORY       @relation(fields: [book_category], references: [category_num])
+  LIB_OWN_BOOK                LIB_OWN_BOOK[]
+  LOG_BOOKToLOG_book_category LOG[]          @relation("BOOKToLOG_book_category")
+  LOG_BOOKToLOG_book_num      LOG[]          @relation("BOOKToLOG_book_num")
+  USER                        USER[]
+  User_BOOK                   User_BOOK[]
+
+  @@index([book_category], name: "FK_BOOK_book_category_CATEGORY_category_num")
+}
+
+model CATEGORY {
+  category_name String
+  category_num  Int    @id
+  BOOK          BOOK[]
+  USER          USER[]
+}
+
+model LIBRARY {
+  lib_location String?
+  lib_name     String?
+  lib_num      Int            @default(autoincrement()) @id
+  lib_phone    String?
+  LIB_OWN_BOOK LIB_OWN_BOOK[]
+}
+
+model LIB_OWN_BOOK {
+  book_num    Int
+  book_sector String
+  lib_num     Int
+  LOB_AI      Int     @default(autoincrement()) @id
+  retention   String
+  BOOK        BOOK    @relation(fields: [book_num], references: [book_num])
+  LIBRARY     LIBRARY @relation(fields: [lib_num], references: [lib_num])
+
+  @@index([book_num], name: "FK_LIB_OWN_BOOK_book_num_BOOK_book_num")
+  @@index([lib_num], name: "FK_LIB_OWN_BOOK_lib_num_LIBRARY_lib_num")
+}
+
+model LOG {
+  book_category                Int
+  book_num                     Int
+  L_AI                         Int      @default(autoincrement()) @id
+  search_time                  DateTime @default(now())
+  user_ID                      String
+  BOOK_BOOKToLOG_book_category BOOK     @relation("BOOKToLOG_book_category", fields: [book_category], references: [book_category])
+  BOOK_BOOKToLOG_book_num      BOOK     @relation("BOOKToLOG_book_num", fields: [book_num], references: [book_num])
+  USER                         USER     @relation(fields: [user_ID], references: [user_ID])
+
+  @@index([book_category], name: "FK_LOG_BOOK")
+  @@index([book_num], name: "FK_LOG_book_num_BOOK_book_num")
+  @@index([user_ID], name: "FK_LOG_user_ID_USER_user_ID")
+}
+
+model USER {
+  user_age      Int?
+  user_category Int?
+  user_gender   String?
+  user_ID       String      @id
+  user_mindbook Int?
+  user_name     String
+  user_password String
+  user_phone    String
+  CATEGORY      CATEGORY?   @relation(fields: [user_category], references: [category_num])
+  BOOK          BOOK?       @relation(fields: [user_mindbook], references: [book_num])
+  LOG           LOG[]
+  User_BOOK     User_BOOK[]
+
+  @@index([user_mindbook], name: "FK_USER_BOOK")
+  @@index([user_category], name: "FK_USER_user_category_CATEGORY_category_num")
+}
+
+model User_BOOK {
+  book_num     Int
+  comment      String?
+  rating_scale Float?
+  user_book_AI Int     @default(autoincrement()) @id
+  user_ID      String
+  BOOK         BOOK    @relation(fields: [book_num], references: [book_num])
+  USER         USER    @relation(fields: [user_ID], references: [user_ID])
+
+  @@index([book_num], name: "FK_User_BOOK_book_num_BOOK_book_num")
+  @@index([user_ID], name: "FK_User_BOOK_user_ID_USER_user_ID")
+}

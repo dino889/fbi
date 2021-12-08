@@ -1,0 +1,82 @@
+
+type Book{
+        book_num:Int!
+        book_name:String!
+        book_author:String
+        book_year:String
+        book_publisher:String
+        book_picture:String
+        book_category:Int
+}
+type Category{
+        category_num:Int!
+        category_name:String!
+}
+type Library{
+        lib_num:Int!
+        lib_name:String
+        lib_location:String
+        lib_phone:String
+}
+type Library_OwnBook{
+        LOB_AI:Int!
+        lib_num:Int!
+        book_num:Int!
+        retention:String!
+        book_sector:String!
+}
+type Log{
+        LOB_AI:Int
+        book_num:Int! 
+        user_ID:String!
+        user_age:Int!
+        book_category:Int!
+        search_time:String
+}
+type User{
+        user_ID:String!
+        user_password:String!
+        user_name:String!
+        user_phone:String!
+        user_age:Int!
+        user_gender:String!
+        user_mindbook:String
+        user_category:Int
+}
+type User_Book{
+        user_book_AI:Int!
+        user_ID:String!
+        book_num:Int!
+        comment:String
+        rating_scale:Float!
+}
+type Log_Count{
+        book_num:Int!
+        count:Int
+}
+type findBookInShelf{
+        url:String!
+}
+type Query {
+        getBooklist: [Book]
+        getAllUser: [User]
+        getUserBook:[User_Book]
+        getCategory:[Category]
+        getLibrary:[Library]
+        getLibraryBooks:[Library_OwnBook]
+        getlog:[Log]
+        loginUser(id:String!,pw:String!):[User]
+        mostSearchbook:[Book]
+        searchedBook(id:String!):[Book]
+        mindbook(id:String!):[Book]
+        getUserbyID:User!
+        getMindbook(id:String!):Book!
+        getByBookNum(book_num:Int!):Book!
+        findBookInShelf(book_num:Int!,user_ID:String!): findBookInShelf
+}
+type Mutation {
+        joinUser(user_ID:String!,user_password:String!,user_name:String!,user_phone:String!,user_age:Int!,user_gender:String!, user_category:Int!): User!
+        addLog(book_num:Int!,user_ID:String!,user_age:Int!,book_category:Int!):[Log]!
+        updateMindbook(user_ID:String!,book_num:Int!) : Book!
+        updateUserPW(user_ID:String!,user_password:String!) : User!
+}

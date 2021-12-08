@@ -1,0 +1,47 @@
+import {GraphQLServer} from "graphql-yoga";
+import resolvers from "./graphql/resolvers";
+import {PrismaClient} from "@prisma/client";
+import morgan from 'morgan';
+import {logger,stream} from './config/morgan_config';
+
+const path = require('path');
+const express = require('express');
+const prisma = new PrismaClient();
+// const PORT = process.env.PORT || 5000;
+
+
+//server options
+const options = {
+	port:5000,
+	endpoint:'/graphql',
+	debug:false,
+}
+
+//server 
+const server = new GraphQLServer({
+	typeDefs: ["graphql/schema.graphql"],
+	resolvers
+});
+//console.log(path.join(__dirname,'Log','error'));
+
+server.express.use('/img',express.static('img'));
+server.express.use(morgan('short',{"stream": stream}));
+
+server.express.use('
+
+async function main() {
+	// ... you will write your Prisma Client queries here
+}
+
+main()
+	.catch(e => {
+		throw e
+	})
+	.finally(async () => {
+		await prisma.disconnect()
+	})
+
+server.start(options, ({port}) => 
+	console.log("Graphql Server Running : port = "+`${port}`)
+);
+
